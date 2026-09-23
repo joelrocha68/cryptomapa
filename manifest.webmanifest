@@ -1,13 +1,12 @@
 {
-  "name": "CryptoMapa 13.1 - Carteira Auditável",
-  "short_name": "CryptoMapa",
-  "description": "Carteira cripto consolidada com auditoria, reconciliação, taxas em cripto, backups versionados e histórico recalculável.",
-  "start_url": "./index.html#/dashboard",
+  "name": "CryptoCheck - Inventário Cripto",
+  "short_name": "CryptoCheck",
+  "description": "Inventário e reconciliação de criptomoedas espalhadas entre exchanges e wallets, com valor em USD.",
+  "start_url": "./index.html#/resumo",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#08101f",
+  "background_color": "#07101e",
   "theme_color": "#08101f",
-  "orientation": "any",
   "icons": [
     {"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
   ]
