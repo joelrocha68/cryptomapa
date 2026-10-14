@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
@@ -8,36 +9,203 @@
 <title>CryptoCheck — Inventário Cripto</title>
 <link href="./styles.css" rel="stylesheet"/>
 <link href="./features.css" rel="stylesheet"/>
+<link href="./enhancements.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="app">
 <header class="appbar">
-<div class="appmark"><div class="app-logo">✓</div><div class="app-title"><strong>CryptoCheck</strong><span>Seu inventário cripto em USD</span></div></div>
+<div class="appmark">
+<div class="app-logo">✓</div>
+<div class="app-title"><strong>CryptoCheck</strong><span>Seu inventário cripto em USD</span></div>
+</div>
 <a aria-label="Dados e backup" class="icon-btn" href="#/dados">⚙</a>
 </header>
-<nav class="desktop-nav"><a data-route="resumo" href="#/resumo">Resumo</a><a data-route="ativos" href="#/ativos">Ativos</a><a data-route="locais" href="#/locais">Locais</a><a data-route="conferencia" href="#/conferencia">Conferência</a><a data-route="investigar" href="#/investigar">Investigar</a><a data-route="dados" href="#/dados">Dados</a></nav>
+<nav class="desktop-nav">
+<a data-route="resumo" href="#/resumo">Resumo</a>
+<a data-route="ativos" href="#/ativos">Ativos</a>
+<a data-route="locais" href="#/locais">Locais</a>
+<a data-route="conferencia" href="#/conferencia">Conferência</a>
+<a data-route="investigar" href="#/investigar">Investigar</a>
+<a data-route="dados" href="#/dados">Dados</a>
+</nav>
 <section class="page" data-page="resumo">
 <div class="page-head"><div><h2>Visão geral</h2><p>Quanto do seu patrimônio está realmente localizado e conferido.</p></div></div>
-<div class="card hero"><div class="hero-top"><div><div class="eyebrow">Patrimônio encontrado</div><div class="hero-value" id="kFound">$0.00</div><div class="hero-sub" id="heroSubtitle">Localize seus ativos e acompanhe a auditoria.</div></div><div class="hero-actions"><button class="btn primary" id="updatePricesTop">↻ Atualizar preços</button></div></div><div class="hero-progress"><div class="progress-line"><span>Patrimônio confirmado</span><strong id="auditPercent">0%</strong></div><div class="progress-track"><div class="progress-bar" id="auditBar"></div></div></div></div>
-<div class="stat-strip"><div class="mini-stat"><span>Registrado</span><strong id="kExpected">$0.00</strong></div><div class="mini-stat ok"><span>Confirmado</span><strong id="kConfirmed">$0.00</strong></div><div class="mini-stat bad"><span>Não localizado</span><strong id="kMissing">$0.00</strong></div></div>
+<div class="card hero">
+<div class="hero-top">
+<div><div class="eyebrow">Patrimônio encontrado</div><div class="hero-value" id="kFound">$0.00</div><div class="hero-sub" id="heroSubtitle">Localize seus ativos e acompanhe a auditoria.</div></div>
+<div class="hero-actions"><button class="btn primary" id="updatePricesTop">↻ Atualizar preços</button></div>
+</div>
+<div class="hero-progress"><div class="progress-line"><span>Patrimônio confirmado</span><strong id="auditPercent">0%</strong></div><div class="progress-track"><div class="progress-bar" id="auditBar"></div></div></div>
+</div>
+<div class="stat-strip">
+<div class="mini-stat"><span>Registrado</span><strong id="kExpected">$0.00</strong></div>
+<div class="mini-stat ok"><span>Confirmado</span><strong id="kConfirmed">$0.00</strong></div>
+<div class="mini-stat bad"><span>Não localizado</span><strong id="kMissing">$0.00</strong></div>
+</div>
 <a class="quick-card" href="#/conferencia" style="text-decoration:none;color:inherit"><div><strong>✓ Fazer conferência rápida</strong><span>Abra suas exchanges e wallets e atualize os saldos reais.</span></div><div style="font-size:18px">›</div></a>
 <button class="quick-card quick-button" id="startAuditBtn" type="button"><div><strong>◎ Iniciar auditoria guiada</strong><span>Passe ativo por ativo e confirme onde cada saldo está.</span></div><div style="font-size:18px">›</div></button>
-<div class="grid two"><div class="card"><div class="section-title"><div><h3>Estado da auditoria</h3><p>Indicadores essenciais do seu inventário.</p></div></div><div class="audit-grid"><div class="metric"><span>Ativos</span><strong id="sAssets">0</strong></div><div class="metric"><span>Divergências</span><strong id="sMismatch">0</strong></div><div class="metric"><span>Não conferidos</span><strong id="sUnchecked">0</strong></div><div class="metric"><span>Locais</span><strong id="sLocations">0</strong></div><div class="metric"><span>Em risco</span><strong id="sRisk">$0.00</strong></div><div class="metric"><span>Sem preço</span><strong id="sNoPrice">0</strong></div></div></div><div class="card"><div class="section-title"><div><h3>Cotação</h3><p>USD é a moeda-base do CryptoCheck.</p></div></div><div class="market-row"><div class="market-info"><span class="dot" id="priceDot"></span><div class="market-copy"><strong id="priceText">Preços ainda não atualizados</strong><span id="priceSub">Use CoinGecko ou preço manual.</span></div></div><button class="btn compact" id="updatePricesBtn">Atualizar</button></div></div></div>
-<div class="card" style="margin-top:11px"><div class="section-title"><div><h3>Precisa da sua atenção</h3><p>Divergências e riscos mais importantes primeiro.</p></div><a href="#/investigar" style="color:var(--accent);font-size:9px;text-decoration:none;font-weight:900">VER TODOS</a></div><div class="list" id="priorityList"></div></div>
-</section>
-<section class="page" data-page="ativos"><div class="page-head"><div><h2>Ativos</h2><p>O que você acredita ter versus o que realmente encontrou.</p></div><div class="actions"><button class="btn primary" id="newAssetBtn">+ Ativo</button></div></div><div class="card"><div class="toolbar"><input id="assetSearch" placeholder="Buscar BTC, EGLD, Ethereum..."/><select id="assetFilter"><option value="">Todos</option><option value="mismatch">Com divergência</option><option value="unchecked">Não conferidos</option><option value="risk">Em risco</option><option value="noprice">Sem preço</option></select></div><div class="list" id="assetList"></div></div></section>
-<section class="page" data-page="locais"><div class="page-head"><div><h2>Locais</h2><p>Onde suas criptos estão ou estiveram guardadas.</p></div><div class="actions"><button class="btn primary" id="newLocationBtn">+ Local</button></div></div><div class="grid two" id="locationList"></div></section>
-<section class="page" data-page="investigar"><div class="page-head"><div><h2>Alertas</h2><p>Resolva primeiro o que representa mais valor ou está há mais tempo sem conferência.</p></div></div><div class="card"><div class="section-title"><div><h3>Maiores pendências por USD</h3><p>Ranking do maior valor não localizado para o menor.</p></div></div><div class="list" id="pendingRanking"></div></div><div class="card" style="margin-top:11px"><div class="section-title"><div><h3>Outros alertas</h3><p>Conferências antigas, locais de risco e ativos sem preço.</p></div></div><div class="list" id="investigateList"></div></div></section>
-<section class="page" data-page="conferencia"><div class="page-head"><div><h2>Conferir</h2><p>Atualize os saldos reais sem perder tempo.</p></div></div><div class="card"><div class="toolbar"><select id="checkLocationFilter"><option value="">Todos os locais</option></select><select id="checkStatusFilter"><option value="">Todos</option><option value="unchecked">Somente não conferidos</option><option value="stale">Conferidos há mais de 30 dias</option></select></div><div class="list" id="checkList"></div></div></section>
-<section class="page" data-page="dados"><div class="page-head"><div><h2>Dados e backup</h2><p>Proteja e transporte seu inventário.</p></div></div><div class="card" style="margin-bottom:11px"><div class="section-title"><div><h3>Importação rápida</h3><p>Cadastre muitos ativos de uma vez ou importe uma lista completa com locais e saldos.</p></div></div><div class="actions"><button class="btn primary" id="bulkImportBtn">⚡ Importar lista</button><button class="btn" id="startAuditDataBtn">◎ Auditoria guiada</button></div><div class="notice" style="margin-top:10px"><strong>Modo simples:</strong> uma linha por ativo, por exemplo <code>KAVA 686,87</code>. <strong>Modo completo:</strong> use as seções [LOCAIS], [ATIVOS] e [SALDOS] para montar todo o inventário em uma única lista.</div></div><div class="grid two"><div class="card"><div class="section-title"><div><h3>Backup</h3><p>Seus dados ficam neste navegador.</p></div></div><div class="actions"><button class="btn primary" id="exportJsonBtn">Exportar JSON</button><button class="btn" id="exportCsvBtn">Exportar inventário CSV</button><button class="btn" id="importBtn">Importar JSON</button></div><input accept=".json,application/json" hidden id="importFile" type="file"/><div class="notice" style="margin-top:10px">Este app não pede seed phrase, chave privada, senha de exchange nem 2FA. Ele serve para inventário e conferência, não para movimentar fundos.</div></div><div class="card"><div class="section-title"><div><h3>PWA</h3><p>Instale no celular quando aberto por HTTPS.</p></div></div><div class="actions"><button class="btn" id="installBtn">📲 Instalar app</button><button class="btn danger" id="clearBtn">Zerar tudo</button></div><div class="notice" style="margin-top:10px">Abra a URL da Vercel no Chrome e use “Instalar app”.</div></div></div></section>
-<footer class="footer">CryptoCheck v3 • auditoria cripto rápida • dados locais</footer>
+<div class="grid two">
+<div class="card">
+<div class="section-title"><div><h3>Estado da auditoria</h3><p>Indicadores essenciais do seu inventário.</p></div></div>
+<div class="audit-grid">
+<div class="metric"><span>Ativos</span><strong id="sAssets">0</strong></div>
+<div class="metric"><span>Divergências</span><strong id="sMismatch">0</strong></div>
+<div class="metric"><span>Não conferidos</span><strong id="sUnchecked">0</strong></div>
+<div class="metric"><span>Locais</span><strong id="sLocations">0</strong></div>
+<div class="metric"><span>Em risco</span><strong id="sRisk">$0.00</strong></div>
+<div class="metric"><span>Sem preço</span><strong id="sNoPrice">0</strong></div>
 </div>
-<nav aria-label="Navegação principal" class="mobile-nav"><a data-route="resumo" href="#/resumo"><b>⌂</b><span>Início</span></a><a data-route="ativos" href="#/ativos"><b>◉</b><span>Ativos</span></a><a data-route="conferencia" href="#/conferencia"><b>✓</b><span>Conferir</span></a><a data-route="locais" href="#/locais"><b>⌖</b><span>Locais</span></a><a data-route="investigar" href="#/investigar"><b>!</b><span>Alertas</span></a></nav>
-<div class="modal" id="assetModal"><div class="modal-card"><div class="modal-head"><h3 id="assetModalTitle">Adicionar ativo</h3><button class="x" data-close="assetModal">×</button></div><form id="assetForm"><input id="assetId" type="hidden"/><div class="form-grid"><div><label>Ticker *</label><input id="aSymbol" placeholder="EGLD" required/></div><div><label>Nome</label><input id="aName" placeholder="MultiversX"/></div><div><label>Quantidade registrada *</label><input id="aExpected" min="0" placeholder="7.939" required step="any" type="number"/></div><div><label>Fonte do registro</label><select id="aSource"><option>CoinMarketCap</option><option>Planilha</option><option>Anotação antiga</option><option>Exchange</option><option>Wallet</option><option>Outro</option></select></div><div><label>CoinGecko ID <span style="color:var(--muted);font-weight:500">(recomendado)</span></label><input id="aCoinId" placeholder="ex.: kava, bitcoin, elrond-egld"/></div><div><label>Preço manual em USD <span style="color:var(--muted);font-weight:500">(opcional)</span></label><input id="aManualPrice" min="0" placeholder="Só use se não houver cotação automática" step="any" type="number"/><div class="hint">Preço de 1 unidade do ativo, não o valor total da posição.</div></div><div><label>Quantidade já explicada</label><input id="aExplained" min="0" placeholder="0" step="any" type="number"/></div><div><label>Motivo da diferença explicada</label><input id="aExplanation" placeholder="Venda antiga, taxa, migração..."/></div><div class="full"><label>Observações</label><textarea id="aNotes" placeholder="Ex.: anotado no CMC desde 2021..."></textarea></div></div><div class="actions" style="margin-top:12px"><button class="btn primary" type="submit">Salvar ativo</button><button class="btn ghost" data-close="assetModal" type="button">Cancelar</button></div></form></div></div>
-<div class="modal" id="balanceModal"><div class="modal-card"><div class="modal-head"><h3>Saldo encontrado</h3><button class="x" data-close="balanceModal">×</button></div><form id="balanceForm"><input id="balanceId" type="hidden"/><input id="balanceAssetId" type="hidden"/><div class="form-grid"><div><label>Local *</label><select id="bLocation" required></select></div><div><label>Quantidade encontrada *</label><input id="bQty" min="0" required step="any" type="number"/></div><div><label>Prova de existência</label><select id="bProof"><option value="confirmed">🟢 Confirmado agora</option><option value="address">🔵 Verificado por endereço</option><option value="old">🟡 Registro antigo</option><option value="unchecked">🟠 Não conferido</option><option value="inaccessible">🔴 Inacessível</option><option value="lost">⚫ Perdido/encerrado</option></select></div><div><label>Rede</label><input id="bNetwork" placeholder="Ethereum, MultiversX..."/></div><div class="full"><label>Observações</label><textarea id="bNotes"></textarea></div></div><div class="actions" style="margin-top:12px"><button class="btn primary" type="submit">Salvar saldo</button><button class="btn ghost" data-close="balanceModal" type="button">Cancelar</button></div></form></div></div>
-<div class="modal" id="locationModal"><div class="modal-card"><div class="modal-head"><h3>Local</h3><button class="x" data-close="locationModal">×</button></div><form id="locationForm"><input id="locationId" type="hidden"/><div class="form-grid"><div><label>Nome *</label><input id="lName" placeholder="MEXC" required/></div><div><label>Tipo</label><select id="lType"><option>Exchange</option><option>Hardware wallet</option><option>Hot wallet</option><option>Carteira mobile</option><option>Endereço blockchain</option><option>DeFi</option><option>Staking</option><option>Exchange encerrada</option><option>Carteira antiga</option><option>Local desconhecido</option><option>Outro</option></select></div><div><label>Status</label><select id="lStatus"><option value="active">🟢 Operacional</option><option value="restricted">🟠 Restrito/difícil acesso</option><option value="closed">🔴 Encerrado</option><option value="unknown">⚪ Desconhecido</option></select></div><div><label>Conta/apelido</label><input id="lAccount" placeholder="Principal"/></div><div class="full"><label>Observações</label><textarea id="lNotes"></textarea></div></div><div class="actions" style="margin-top:12px"><button class="btn primary" type="submit">Salvar local</button><button class="btn ghost" data-close="locationModal" type="button">Cancelar</button></div></form></div></div>
-<div class="modal" id="bulkImportModal"><div class="modal-card"><div class="modal-head"><h3>Importar lista</h3><button class="x" data-close="bulkImportModal">×</button></div><div class="notice"><strong>Rápido:</strong> cole <code>KAVA 686,87</code>, <code>EGLD 7,939</code> etc. Para importar tudo de uma vez, use o modelo completo.</div><div class="actions" style="margin:10px 0"><button class="btn" id="fillTemplateBtn" type="button">Inserir modelo completo</button></div><label>Lista para importar</label><textarea id="bulkImportText" class="bulk-text" placeholder="KAVA 686,87&#10;EGLD 7,939&#10;BTC 0,001245"></textarea><div id="bulkImportResult" class="hint" style="min-height:18px;margin-top:8px"></div><div class="actions" style="margin-top:12px"><button class="btn primary" id="bulkImportRunBtn" type="button">Importar para o CryptoCheck</button><button class="btn ghost" data-close="bulkImportModal" type="button">Fechar</button></div></div></div>
-<div class="modal" id="auditModal"><div class="modal-card"><div class="modal-head"><h3>Auditoria inicial</h3><button class="x" data-close="auditModal">×</button></div><div id="auditBody"></div></div></div>
-<script defer src="./core.js"></script><script defer src="./actions.js"></script><script defer src="./features.js"></script>
+</div>
+<div class="card">
+<div class="section-title"><div><h3>Cotação</h3><p>USD é a moeda-base do CryptoCheck.</p></div></div>
+<div class="market-row"><div class="market-info"><span class="dot" id="priceDot"></span><div class="market-copy"><strong id="priceText">Preços ainda não atualizados</strong><span id="priceSub">Use CoinGecko ou preço manual.</span></div></div><button class="btn compact" id="updatePricesBtn">Atualizar</button></div>
+</div>
+</div>
+<div class="card" style="margin-top:11px">
+<div class="section-title"><div><h3>Precisa da sua atenção</h3><p>Divergências e riscos mais importantes primeiro.</p></div><a href="#/investigar" style="color:var(--accent);font-size:9px;text-decoration:none;font-weight:900">VER TODOS</a></div>
+<div class="list" id="priorityList"></div>
+</div>
+</section>
+<section class="page" data-page="ativos">
+<div class="page-head"><div><h2>Ativos</h2><p>O que você acredita ter versus o que realmente encontrou.</p></div><div class="actions"><button class="btn primary" id="newAssetBtn">+ Ativo</button></div></div>
+<div class="card">
+<div class="toolbar">
+<input id="assetSearch" placeholder="Buscar BTC, EGLD, Ethereum..."/>
+<select id="assetFilter">
+<option value="">Todos</option><option value="mismatch">Com divergência</option><option value="unchecked">Não conferidos</option><option value="risk">Em risco</option><option value="noprice">Sem preço</option>
+</select>
+</div>
+<div class="list" id="assetList"></div>
+</div>
+</section>
+<section class="page" data-page="locais">
+<div class="page-head"><div><h2>Locais</h2><p>Onde suas criptos estão ou estiveram guardadas.</p></div><div class="actions"><button class="btn primary" id="newLocationBtn">+ Local</button></div></div>
+<div class="grid two" id="locationList"></div>
+</section>
+<section class="page" data-page="investigar">
+<div class="page-head"><div><h2>Alertas</h2><p>Resolva primeiro o que representa mais valor ou está há mais tempo sem conferência.</p></div></div>
+<div class="card">
+<div class="section-title"><div><h3>Maiores pendências por USD</h3><p>Ranking do maior valor não localizado para o menor.</p></div></div>
+<div class="list" id="pendingRanking"></div>
+</div>
+<div class="card" style="margin-top:11px">
+<div class="section-title"><div><h3>Outros alertas</h3><p>Conferências antigas, locais de risco e ativos sem preço.</p></div></div>
+<div class="list" id="investigateList"></div>
+</div>
+</section>
+<section class="page" data-page="conferencia">
+<div class="page-head"><div><h2>Conferir</h2><p>Atualize os saldos reais sem perder tempo.</p></div></div>
+<div class="card">
+<div class="toolbar"><select id="checkLocationFilter"><option value="">Todos os locais</option></select><select id="checkStatusFilter"><option value="">Todos</option><option value="unchecked">Somente não conferidos</option><option value="stale">Conferidos há mais de 30 dias</option></select></div>
+<div class="list" id="checkList"></div>
+</div>
+</section>
+<section class="page" data-page="dados">
+<div class="page-head"><div><h2>Dados e backup</h2><p>Proteja e transporte seu inventário.</p></div></div>
+<div class="card" style="margin-bottom:11px">
+<div class="section-title"><div><h3>Importação rápida</h3><p>Cadastre muitos ativos de uma vez ou importe uma lista completa com locais e saldos.</p></div></div>
+<div class="actions"><button class="btn primary" id="bulkImportBtn">⚡ Importar lista</button><button class="btn" id="startAuditDataBtn">◎ Auditoria guiada</button></div>
+<div class="notice" style="margin-top:10px"><strong>Modo simples:</strong> uma linha por ativo, por exemplo <code>KAVA 686,87</code>. <strong>Modo completo:</strong> use as seções [LOCAIS], [ATIVOS] e [SALDOS] para montar todo o inventário em uma única lista.</div>
+</div>
+<div class="grid two">
+<div class="card">
+<div class="section-title"><div><h3>Backup</h3><p>Seus dados ficam neste navegador.</p></div></div>
+<div class="actions">
+<button class="btn primary" id="exportJsonBtn">Exportar JSON</button>
+<button class="btn" id="exportCsvBtn">Exportar inventário CSV</button>
+<button class="btn" id="importBtn">Importar JSON</button>
+</div>
+<input accept=".json,application/json" hidden="" id="importFile" type="file"/>
+<div class="notice" style="margin-top:10px">Este app não pede seed phrase, chave privada, senha de exchange nem 2FA. Ele serve para inventário e conferência, não para movimentar fundos.</div>
+</div>
+<div class="card">
+<div class="section-title"><div><h3>PWA</h3><p>Instale no celular quando aberto por HTTPS.</p></div></div>
+<div class="actions"><button class="btn" id="installBtn">📲 Instalar app</button><button class="btn danger" id="clearBtn">Zerar tudo</button></div>
+<div class="notice" style="margin-top:10px">Abra a URL da Vercel no Chrome e use “Instalar app”.</div>
+</div>
+</div>
+</section>
+<footer class="footer">CryptoCheck v4 • auditoria cripto rápida • dados locais</footer>
+</div>
+<nav aria-label="Navegação principal" class="mobile-nav">
+<a data-route="resumo" href="#/resumo"><b>⌂</b><span>Início</span></a>
+<a data-route="ativos" href="#/ativos"><b>◉</b><span>Ativos</span></a>
+<a data-route="conferencia" href="#/conferencia"><b>✓</b><span>Conferir</span></a>
+<a data-route="locais" href="#/locais"><b>⌖</b><span>Locais</span></a>
+<a data-route="investigar" href="#/investigar"><b>!</b><span>Alertas</span></a>
+</nav>
+<!-- Asset modal -->
+<div class="modal" id="assetModal"><div class="modal-card">
+<div class="modal-head"><h3 id="assetModalTitle">Adicionar ativo</h3><button class="x" data-close="assetModal">×</button></div>
+<form id="assetForm">
+<input id="assetId" type="hidden"/>
+<div class="form-grid">
+<div><label>Ticker *</label><input id="aSymbol" placeholder="EGLD" required=""/></div>
+<div><label>Nome</label><input id="aName" placeholder="MultiversX"/></div>
+<div><label>Quantidade registrada *</label><input id="aExpected" min="0" placeholder="7.939" required="" step="any" type="number"/></div>
+<div><label>Fonte do registro</label><select id="aSource"><option>CoinMarketCap</option><option>Planilha</option><option>Anotação antiga</option><option>Exchange</option><option>Wallet</option><option>Outro</option></select></div>
+<div><label>CoinGecko ID <span style="color:var(--muted);font-weight:500">(recomendado)</span></label><input id="aCoinId" placeholder="ex.: kava, bitcoin, elrond-egld"/></div>
+<div><label>Preço manual em USD <span style="color:var(--muted);font-weight:500">(opcional)</span></label><input id="aManualPrice" min="0" placeholder="Só use se não houver cotação automática" step="any" type="number"/><div class="hint">Preço de 1 unidade do ativo, não o valor total da posição.</div></div>
+<div><label>Quantidade já explicada</label><input id="aExplained" min="0" placeholder="0" step="any" type="number"/></div>
+<div><label>Motivo da diferença explicada</label><input id="aExplanation" placeholder="Venda antiga, taxa, migração..."/></div>
+<div class="full"><label>Observações</label><textarea id="aNotes" placeholder="Ex.: anotado no CMC desde 2021..."></textarea></div>
+</div>
+<div class="actions" style="margin-top:12px"><button class="btn primary" type="submit">Salvar ativo</button><button class="btn ghost" data-close="assetModal" type="button">Cancelar</button></div>
+</form>
+</div></div>
+<!-- Balance modal -->
+<div class="modal" id="balanceModal"><div class="modal-card">
+<div class="modal-head"><h3>Saldo encontrado</h3><button class="x" data-close="balanceModal">×</button></div>
+<form id="balanceForm">
+<input id="balanceId" type="hidden"/><input id="balanceAssetId" type="hidden"/>
+<div class="form-grid">
+<div><label>Local *</label><select id="bLocation" required=""></select></div>
+<div><label>Quantidade encontrada *</label><input id="bQty" min="0" required="" step="any" type="number"/></div>
+<div><label>Prova de existência</label><select id="bProof">
+<option value="confirmed">🟢 Confirmado agora</option><option value="address">🔵 Verificado por endereço</option><option value="old">🟡 Registro antigo</option><option value="unchecked">🟠 Não conferido</option><option value="inaccessible">🔴 Inacessível</option><option value="lost">⚫ Perdido/encerrado</option>
+</select></div>
+<div><label>Rede</label><input id="bNetwork" placeholder="Ethereum, MultiversX..."/></div>
+<div class="full"><label>Observações</label><textarea id="bNotes"></textarea></div>
+</div>
+<div class="actions" style="margin-top:12px"><button class="btn primary" type="submit">Salvar saldo</button><button class="btn ghost" data-close="balanceModal" type="button">Cancelar</button></div>
+</form>
+</div></div>
+<!-- Location modal -->
+<div class="modal" id="locationModal"><div class="modal-card">
+<div class="modal-head"><h3>Local</h3><button class="x" data-close="locationModal">×</button></div>
+<form id="locationForm">
+<input id="locationId" type="hidden"/>
+<div class="form-grid">
+<div><label>Nome *</label><input id="lName" placeholder="MEXC" required=""/></div>
+<div><label>Tipo</label><select id="lType"><option>Exchange</option><option>Hardware wallet</option><option>Hot wallet</option><option>Carteira mobile</option><option>Endereço blockchain</option><option>DeFi</option><option>Staking</option><option>Exchange encerrada</option><option>Carteira antiga</option><option>Local desconhecido</option><option>Outro</option></select></div>
+<div><label>Status</label><select id="lStatus"><option value="active">🟢 Operacional</option><option value="restricted">🟠 Restrito/difícil acesso</option><option value="closed">🔴 Encerrado</option><option value="unknown">⚪ Desconhecido</option></select></div>
+<div><label>Conta/apelido</label><input id="lAccount" placeholder="Principal"/></div>
+<div class="full"><label>Observações</label><textarea id="lNotes"></textarea></div>
+</div>
+<div class="actions" style="margin-top:12px"><button class="btn primary" type="submit">Salvar local</button><button class="btn ghost" data-close="locationModal" type="button">Cancelar</button></div>
+</form>
+</div></div>
+<!-- Importação rápida -->
+<div class="modal" id="bulkImportModal"><div class="modal-card">
+<div class="modal-head"><h3>Importar lista</h3><button class="x" data-close="bulkImportModal">×</button></div>
+<div class="notice"><strong>Rápido:</strong> cole <code>KAVA 686,87</code>, <code>EGLD 7,939</code> etc. Para importar tudo de uma vez, use o modelo completo.</div>
+<div class="actions" style="margin:10px 0"><button class="btn" id="fillTemplateBtn" type="button">Inserir modelo completo</button></div>
+<label>Lista para importar</label>
+<textarea id="bulkImportText" class="bulk-text" placeholder="KAVA 686,87
+EGLD 7,939
+BTC 0,001245"></textarea>
+<div id="bulkImportResult" class="hint" style="min-height:18px;margin-top:8px"></div>
+<div class="actions" style="margin-top:12px"><button class="btn primary" id="bulkImportRunBtn" type="button">Importar para o CryptoCheck</button><button class="btn ghost" data-close="bulkImportModal" type="button">Fechar</button></div>
+</div></div>
+<!-- Auditoria guiada -->
+<div class="modal" id="auditModal"><div class="modal-card">
+<div class="modal-head"><h3>Auditoria inicial</h3><button class="x" data-close="auditModal">×</button></div>
+<div id="auditBody"></div>
+</div></div>
+
+<script defer src="./core.js"></script>
+<script defer src="./actions.js"></script>
+<script defer src="./features.js"></script>
+<script defer src="./enhancements.js"></script>
 </body>
 </html>
