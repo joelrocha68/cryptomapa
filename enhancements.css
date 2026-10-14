@@ -1,0 +1,10 @@
+/* CryptoCheck v4 — melhorias compactas de UX e auditoria */
+.appbar-tools{display:flex;gap:8px;align-items:center}.privacy-toggle.active{color:#8cf0c9;border-color:#2f6b58;background:#102a27}.privacy-note{font-size:8px;color:var(--muted)}
+body.privacy-mode .hero-value,body.privacy-mode .mini-stat strong,body.privacy-mode .asset-value,body.privacy-mode .asset-metrics strong,body.privacy-mode .balance-chip,body.privacy-mode .rank-value,body.privacy-mode .risk-value,body.privacy-mode .check-item p,body.privacy-mode .location-card p strong{filter:blur(7px);user-select:none;pointer-events:none}
+.asset-extra{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.tag.info{border-color:#2c5576;color:#8fc4ff;background:rgba(106,167,255,.06)}.tag.muted{border-color:#3b4756;color:#9ba8b7;background:rgba(143,161,184,.05)}
+.field-check{display:flex;align-items:center;gap:9px;min-height:44px;border:1px solid #263d58;background:#091522;padding:10px 12px;border-radius:12px}.field-check input{width:auto;margin:0}.field-check label{margin:0;font-size:10px}.select-note{font-size:8px;color:var(--muted);margin-top:4px}
+.pending-toggle{flex:0 0 auto}.pending-toggle.active{border-color:#6a5727;color:#f6d87b;background:rgba(244,201,100,.08)}
+.backup-status{margin-top:8px;font-size:9px;color:var(--muted)}.backup-status strong{color:#d9e7f3}.backup-card{margin-top:11px}.backup-card .actions{margin-top:8px}
+.location-card .cc-check-location{white-space:nowrap}.archived-card{opacity:.68}.migrated-arrow{color:#8fc4ff;font-weight:900}.last-known{color:#91a7bf}.unknown-hint{color:#f5d778}
+@media(max-width:700px){.appbar-tools{gap:6px}.privacy-toggle{width:38px;height:38px}.toolbar{grid-template-columns:1fr 126px auto}.pending-toggle{padding:0 10px}.asset-extra{margin-top:6px}.backup-card{margin-top:10px}}
+@media(max-width:480px){.toolbar{grid-template-columns:1fr 1fr}.pending-toggle{grid-column:1/-1;width:100%}.asset-extra .tag{font-size:7px}}
