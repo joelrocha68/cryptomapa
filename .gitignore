@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.vercel/
+*.csv
+*.cryptocheck
+*.cryptomapa
+*backup*.json
+*backup*.csv
+exports/
+data/
+dados/
+local-data/
+.DS_Store

@@ -1,13 +1,14 @@
 {
-  "name": "CryptoCheck - Inventário Cripto",
+  "id": "/",
+  "name": "CryptoCheck",
   "short_name": "CryptoCheck",
   "description": "Inventário e reconciliação de criptomoedas espalhadas entre exchanges e wallets, com valor em USD.",
-  "start_url": "./index.html#/resumo",
-  "scope": "./",
+  "start_url": "/#/resumo",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07101e",
   "theme_color": "#08101f",
   "icons": [
-    {"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+    {"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
   ]
 }

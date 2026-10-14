@@ -13,8 +13,9 @@ Comparar:
 ## Segurança
 O CryptoCheck não pede seed phrase, chave privada, senha de exchange ou código 2FA.
 
-## Publicação
-GitHub Pages:
-https://joelrocha68.github.io/cryptomapa/
+Os saldos e locais cadastrados pelo usuário ficam no armazenamento local do navegador. Backups, CSVs e arquivos locais estão ignorados pelo Git para evitar publicação acidental de dados pessoais.
 
-No Android, abra o endereço acima no Chrome e use **Instalar app** / **Adicionar à tela inicial**.
+## Produção
+Hospedado na Vercel.
+
+No Android, abra a URL de produção no Chrome e use **Instalar app** / **Adicionar à tela inicial**.
