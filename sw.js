@@ -1,5 +1,5 @@
-const CACHE="cryptocheck-v3-audit";
-const SHELL=["/","/index.html","/styles.css","/features.css","/core.js","/actions.js","/features.js","/manifest.webmanifest","/icon.svg"];
+const CACHE="cryptocheck-v4-compact";
+const SHELL=["/","/index.html","/styles.css","/features.css","/enhancements.css","/core.js","/actions.js","/features.js","/enhancements.js","/manifest.webmanifest","/icon.svg"];
 self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener("fetch",e=>{
