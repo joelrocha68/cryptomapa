@@ -10,6 +10,7 @@
 <link href="./styles.css" rel="stylesheet"/>
 <link href="./features.css" rel="stylesheet"/>
 <link href="./enhancements.css" rel="stylesheet"/>
+<link href="./map.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="app">
@@ -23,8 +24,9 @@
 <nav class="desktop-nav">
 <a data-route="resumo" href="#/resumo">Resumo</a>
 <a data-route="ativos" href="#/ativos">Ativos</a>
-<a data-route="locais" href="#/locais">Locais</a>
 <a data-route="conferencia" href="#/conferencia">Conferência</a>
+<a data-route="mapa" href="#/mapa">Mapa</a>
+<a data-route="locais" href="#/locais">Locais</a>
 <a data-route="investigar" href="#/investigar">Investigar</a>
 <a data-route="dados" href="#/dados">Dados</a>
 </nav>
@@ -82,6 +84,24 @@
 <div class="page-head"><div><h2>Locais</h2><p>Onde suas criptos estão ou estiveram guardadas.</p></div><div class="actions"><button class="btn primary" id="newLocationBtn">+ Local</button></div></div>
 <div class="grid two" id="locationList"></div>
 </section>
+<section class="page" data-page="mapa">
+<div class="page-head"><div><h2>Mapa do patrimônio</h2><p>Veja onde suas criptos estão concentradas e o que ainda não foi localizado.</p></div><div class="actions"><a class="btn" href="#/locais" style="text-decoration:none">Gerenciar locais</a></div></div>
+<div class="map-hero card">
+<div><div class="eyebrow">Patrimônio localizado</div><div class="map-total map-money" id="mapFoundTotal">$0.00</div><div class="hero-sub" id="mapHeroSub">Seu patrimônio por local de custódia.</div></div>
+<div class="map-health"><span>Confirmado</span><strong id="mapConfirmedPct">0%</strong></div>
+</div>
+<div class="map-kpis">
+<div class="mini-stat"><span>Locais com saldo</span><strong id="mapLocationsCount">0</strong></div>
+<div class="mini-stat ok"><span>Custódia própria</span><strong class="map-money" id="mapSelfCustody">$0.00</strong></div>
+<div class="mini-stat bad"><span>Não localizado</span><strong class="map-money" id="mapMissingTotal">$0.00</strong></div>
+</div>
+<div class="card" style="margin-bottom:11px">
+<div class="section-title"><div><h3>Distribuição por custódia</h3><p>Quanto do patrimônio encontrado está em cada tipo de local.</p></div></div>
+<div class="custody-bars" id="mapCustodyBreakdown"></div>
+</div>
+<div class="section-title"><div><h3>Onde está seu patrimônio</h3><p>Locais ordenados pelo maior valor encontrado.</p></div></div>
+<div class="map-location-list" id="mapLocationList"></div>
+</section>
 <section class="page" data-page="investigar">
 <div class="page-head"><div><h2>Alertas</h2><p>Resolva primeiro o que representa mais valor ou está há mais tempo sem conferência.</p></div></div>
 <div class="card">
@@ -125,13 +145,13 @@
 </div>
 </div>
 </section>
-<footer class="footer">CryptoCheck v4 • auditoria cripto rápida • dados locais</footer>
+<footer class="footer">CryptoCheck v5 • auditoria cripto rápida • dados locais</footer>
 </div>
 <nav aria-label="Navegação principal" class="mobile-nav">
 <a data-route="resumo" href="#/resumo"><b>⌂</b><span>Início</span></a>
 <a data-route="ativos" href="#/ativos"><b>◉</b><span>Ativos</span></a>
 <a data-route="conferencia" href="#/conferencia"><b>✓</b><span>Conferir</span></a>
-<a data-route="locais" href="#/locais"><b>⌖</b><span>Locais</span></a>
+<a data-route="mapa" href="#/mapa"><b>⌘</b><span>Mapa</span></a>
 <a data-route="investigar" href="#/investigar"><b>!</b><span>Alertas</span></a>
 </nav>
 <!-- Asset modal -->
@@ -207,5 +227,6 @@ BTC 0,001245"></textarea>
 <script defer src="./actions.js"></script>
 <script defer src="./features.js"></script>
 <script defer src="./enhancements.js"></script>
+<script defer src="./map.js"></script>
 </body>
 </html>
